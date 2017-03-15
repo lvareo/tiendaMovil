@@ -95,4 +95,5 @@ public class RangeSlider extends JSlider {
         // Set extent to set upper value.
         setExtent(newExtent);
     }
+    
 }
