@@ -15,6 +15,7 @@ public class TMVista extends javax.swing.JFrame {
 
     private TMControlador miControl;
     private TMModelo miModelo;
+    
     /**
      * Creates new form NewJFrame
      */
