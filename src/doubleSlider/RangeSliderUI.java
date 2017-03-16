@@ -175,7 +175,7 @@ public class RangeSliderUI extends BasicSliderUI {
     @Override
     public void paintTrack(Graphics g) {
         // Draw track.
-        super.paintTrack(g);
+        //super.paintTrack(g);
         
         Rectangle trackBounds = trackRect;
 
@@ -185,13 +185,58 @@ public class RangeSliderUI extends BasicSliderUI {
 
             g.translate(trackBounds.x, trackBounds.y + cy);
 
-            g.setColor(Color.darkGray);
-            g.drawLine(0, 2, cw - 1, 2);
+            g.setColor(new Color(145,149,157));
+            g.drawLine(2, -3, cw - 2, -3);
+            g.setColor(new Color(155,159,167));
+            g.drawLine(2, -2, cw - 2, -2);
+            g.setColor(new Color(170,174,183));
+            g.drawLine(2, -1, cw-2, -1);
+            g.setColor(new Color(180,184,194));
+            g.drawLine(2, 0, cw-2, 0);
+            g.setColor(new Color(196,192,202));
+            g.drawLine(3, 1, cw-3, 1);
             
-            g.drawLine(0, 1, 0, 2);
-            g.setColor(Color.GRAY);
-            g.drawLine(1, 0, cw-1, 0);
-            g.drawLine(cw, 5, cw, 5);
+            g.setColor(new Color(160,164,172));
+            g.drawLine(1, -3, 1, -3);
+            g.drawLine(cw-1, -3, cw-1, -3);
+            g.setColor(new Color(205,209,215));
+            g.drawLine(0,-3,0,-3);
+            g.drawLine(cw,-3,cw,-3);
+                        
+            g.setColor(new Color(147,151,159));
+            g.drawLine(1, -2, 1, -2);
+            g.drawLine(cw-1, -2, cw-1, -2);
+            g.setColor(new Color(162,166,173));
+            g.drawLine(0,-2,0,-2);
+            g.drawLine(cw,-2,cw,-2);
+            
+            g.setColor(new Color(150,154,163));
+            g.drawLine(0, -1, 0, -1);
+            g.drawLine(cw, -1, cw, -1);
+            g.setColor(new Color(158,162,172));
+            g.drawLine(1, -1, 1, -1);
+            g.drawLine(cw-1, -1, cw-1, -1);
+            
+            g.setColor(new Color(164,169,178));
+            g.drawLine(1,0,1,0);
+            g.drawLine(cw-1,0,cw-1,0);
+            g.setColor(new Color(167,171,179));
+            g.drawLine(0,0,0,0);
+            g.drawLine(cw,0,cw,0);
+            
+            g.setColor(new Color(176,182,191));
+            g.drawLine(2, 1, 2, 1);
+            g.drawLine(cw-2,1,cw-2,1);
+            g.setColor(new Color(174,178,186));
+            g.drawLine(1,1,1,1);
+            g.drawLine(cw-1,1,cw-1,1);
+            g.setColor(new Color(207,210,216));
+            g.drawLine(0, 1, 0, 1);
+            g.drawLine(cw,1,cw,1);
+            
+            
+
+            
                         
             g.setColor(Color.white);
             g.drawLine(2, 6, cw-2, 6);
