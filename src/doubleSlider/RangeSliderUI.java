@@ -149,6 +149,7 @@ public class RangeSliderUI extends BasicSliderUI {
         super.paint(g, c);
         
         Rectangle clipRect = g.getClipBounds();
+        g.setClip(g.getClipBounds(clipRect).x+3,g.getClipBounds(clipRect).y,g.getClipBounds(clipRect).width,g.getClipBounds(clipRect).height);
         if (upperThumbSelected) {
             // Paint lower thumb first, then upper thumb.
             if (clipRect.intersects(thumbRect)) {
@@ -178,10 +179,9 @@ public class RangeSliderUI extends BasicSliderUI {
         //super.paintTrack(g);
         
         Rectangle trackBounds = trackRect;
-
         if ( slider.getOrientation() == JSlider.HORIZONTAL ) {
             int cy = (trackBounds.height / 2) - 2;
-            int cw = trackBounds.width;
+            int cw = (trackBounds.width);
 
             g.translate(trackBounds.x, trackBounds.y + cy);
 
@@ -195,6 +195,8 @@ public class RangeSliderUI extends BasicSliderUI {
             g.drawLine(2, 0, cw-2, 0);
             g.setColor(new Color(196,192,202));
             g.drawLine(3, 1, cw-3, 1);
+            g.setColor(new Color(237,238,241));
+            g.drawLine(4, 2, cw-4, 2);
             
             g.setColor(new Color(160,164,172));
             g.drawLine(1, -3, 1, -3);
@@ -234,12 +236,17 @@ public class RangeSliderUI extends BasicSliderUI {
             g.drawLine(0, 1, 0, 1);
             g.drawLine(cw,1,cw,1);
             
+            g.setColor(new Color(234,235,239));
+            g.drawLine(3, 2, 3, 2);
+            g.drawLine(cw-3, 2, cw-3, 2);
+            g.setColor(new Color(229,231,235));
+            g.drawLine(2,2,2,2);
+            g.drawLine(cw-2, 2, cw-2, 2);
+            g.setColor(new Color(219,222,227));
+            g.drawLine(1, 2, 1, 2);
+            g.drawLine(cw-1, 2, cw-1, 2);
             
-
             
-                        
-            g.setColor(Color.white);
-            g.drawLine(2, 6, cw-2, 6);
             g.translate(-trackBounds.x, -(trackBounds.y + cy));
         }
         else {

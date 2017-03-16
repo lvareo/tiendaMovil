@@ -5,6 +5,8 @@
  */
 package my;
 
+import doubleSlider.RangeSlider;
+import java.awt.Dimension;
 import java.util.Hashtable;
 
 /**
@@ -21,11 +23,35 @@ public class TMVista extends javax.swing.JFrame {
      */
     public TMVista() {
         initComponents();
+        initSlider();
         miModelo = new TMModelo();
         miControl = new TMControlador(this,miModelo);
         
     }
 
+    private void initSlider(){
+        rangeSlider = new RangeSlider();
+        rangeSlider.setPreferredSize(new Dimension(200, 31));
+        rangeSlider.setMinimum(0);
+        rangeSlider.setMajorTickSpacing(250);
+        rangeSlider.setMaximum(1000);
+        rangeSlider.setMinorTickSpacing(100);
+        Hashtable labels =
+        new Hashtable();
+        labels.put(0, new javax.swing.JLabel("0"));
+        labels.put(250, new javax.swing.JLabel("250"));
+        labels.put(500, new javax.swing.JLabel("500"));
+        labels.put(750, new javax.swing.JLabel("750"));
+        labels.put(1000, new javax.swing.JLabel("1000"));
+        rangeSlider.setLabelTable(labels);
+
+        rangeSlider.setPaintLabels(true);
+        rangeSlider.setPaintLabels(true);
+        rangeSlider.setPaintTicks(true);
+        jPanel2.add(rangeSlider);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -314,4 +340,5 @@ public class TMVista extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
+    private RangeSlider rangeSlider;
 }
