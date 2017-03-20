@@ -22,11 +22,11 @@ public class TMModelo {
     
     ComboBoxModel Marcas;
     int Precio;
-    double tamañoPantalla;
+    int []tamañoPantalla;
     Color color;
     ArrayList<movil> Stock;
     Object marcaSeleccionada;
-    
+    ArrayList<Color> disponible;
     Color JetBlack = new Color(0,0,0);
     Color Black = new Color(51,51,51);
     Color Silver = new Color(153,153,153);
@@ -59,8 +59,9 @@ public class TMModelo {
     
     }
     
-    public TMModelo(int Precio,double tamañoPantalla, Color color){
-        Stock = new ArrayList<movil>();
+    public TMModelo(int Precio,int []tamañoPantalla, Color color){
+        disponible = new ArrayList<>();
+        Stock = new ArrayList<>();
         Stock.add(new movil("Apple",JetBlack,5.5,909));
         Stock.add(new movil("Apple",Black,5.5,909));
         Stock.add(new movil("Apple",Silver,5.5,909));
@@ -162,7 +163,7 @@ public class TMModelo {
                 
     }
     
-    public void setTamañoPantalla(double tamaño){
+    public void setTamañoPantalla(int []tamaño){
         tamañoPantalla = tamaño;
     }
   
@@ -247,6 +248,29 @@ public class TMModelo {
 
     public void setMarcaSeleccionada(Object marcaSeleccionada) {
         this.marcaSeleccionada = marcaSeleccionada;
+    }
+    
+    public ArrayList<Color> getDisponible(){
+        return disponible;
+    }
+    
+    public void setDisponible(){
+        Iterator<movil> moviles = Stock.iterator();
+        while (moviles.hasNext()){
+            movil tempMovil = moviles.next();
+            if(tempMovil.getPrecio()<=Precio){
+                if (tempMovil.getMarca().contains(marcaSeleccionada.toString().substring(0, marcaSeleccionada.toString().indexOf("(")))) {
+                    if (tamañoPantalla[0]<= tempMovil.getTamañoPantalla()) {
+                        if (tempMovil.getTamañoPantalla()<= tamañoPantalla[1]) {
+                            disponible.add(tempMovil.getColor());
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+        
     }
     
 }

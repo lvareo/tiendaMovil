@@ -10,7 +10,9 @@ import tiendaMovilControlador.TMControlador;
 import tiendaMovilModelo.TMModelo;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Iterator;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -504,8 +506,34 @@ public class TMVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
-    public void paintColors(){
-        
+    public void setjButtonColor1Background(Color color){
+        jButtonColor1.setBackground(color);
+        jButtonColor1.setEnabled(true);
+    }
+    public void setjButtonColor2Background(Color color){
+        jButtonColor2.setBackground(color);
+        jButtonColor2.setEnabled(true);
+    }
+    public void setjButtonColor3Background(Color color){
+        jButtonColor3.setBackground(color);
+        jButtonColor3.setEnabled(true);
+    }
+    public void setjButtonColor4Background(Color color){
+        jButtonColor4.setBackground(color);
+        jButtonColor4.setEnabled(true);    
+    }
+    public void setjButtonColor5Background(Color color){
+        jButtonColor5.setBackground(color);
+        jButtonColor5.setEnabled(true);    
+    }
+    public void setjButtonColor6Background(Color color){
+        jButtonColor6.setBackground(color);
+        jButtonColor6.setEnabled(true);    
+    }
+    
+    public void setPanelColorEnable(){
+        jPanelColor.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Color"));
+        jPanelColor.setEnabled(true);
     }
     
     /**
@@ -539,7 +567,4 @@ public class TMVista extends javax.swing.JFrame {
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextField jTextFieldPrecio;
     // End of variables declaration//GEN-END:variables
-
-    
-    
 }

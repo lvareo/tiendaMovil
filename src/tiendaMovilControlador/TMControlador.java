@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package tiendaMovilControlador;
+import java.awt.Color;
+import java.util.ArrayList;
 import tiendaMovilVista.TMVista;
 import tiendaMovilModelo.TMModelo;
 /**
@@ -22,7 +24,33 @@ public class TMControlador {
     
     public void setSelectionButtonGroup1(int []value){
         miModelo.setTamañoPantalla(value);
-        miVista.paintColors();
+        miModelo.setDisponible();
+        ArrayList<Color> colores;
+        colores = miModelo.getDisponible();
+        System.out.println(colores.toString());
+        for(int i=0;i<colores.size();i++){
+            switch (i){
+                case 0:
+                    miVista.setjButtonColor1Background(colores.get(i));
+                    break;
+                case 1:
+                    miVista.setjButtonColor2Background(colores.get(i));
+                    break;
+                case 2:
+                    miVista.setjButtonColor3Background(colores.get(i));
+                    break;
+                case 3:
+                    miVista.setjButtonColor4Background(colores.get(i));
+                    break;
+                case 4:
+                    miVista.setjButtonColor5Background(colores.get(i));
+                    break;
+                case 5:
+                    miVista.setjButtonColor6Background(colores.get(i));
+                    break;           
+            }
+        }
+        miVista.setPanelColorEnable();
     }
     
     public void setjSlider1Value(){
