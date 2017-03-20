@@ -35,7 +35,6 @@ public class TMControlador {
     public void setMarcaSelection(){
         Object marca = miVista.getjComboBoxMarcas().getSelectedItem();
         miModelo.setMarcaSeleccionada(marca);
-        miVista.setjComboBoxMarcas();
         miVista.setSeleccionMarca();
     }
     /**
