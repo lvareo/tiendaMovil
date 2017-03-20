@@ -35,7 +35,8 @@ public class TMVista extends javax.swing.JFrame {
      */
     public TMVista() {
         initComponents();
-        miModelo = new TMModelo(jSlider1.getValue(),selectionButtonGroup1,new Color(0,0,0));
+        int [] pantalla={0,6};
+        miModelo = new TMModelo(jSlider1.getValue(),pantalla,new Color(0,0,0));
         miControl = new TMControlador(this,miModelo);
         
     }
@@ -237,8 +238,6 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.setEnabled(false);
         jPanelColor.setLayout(new java.awt.GridBagLayout());
 
-        jButtonColor1.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonColor1.setForeground(new java.awt.Color(255, 0, 0));
         jButtonColor1.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -252,7 +251,6 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 32, 7, 32);
         jPanelColor.add(jButtonColor1, gridBagConstraints);
 
-        jButtonColor3.setBackground(new java.awt.Color(0, 0, 255));
         jButtonColor3.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -266,7 +264,6 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 32, 7, 32);
         jPanelColor.add(jButtonColor3, gridBagConstraints);
 
-        jButtonColor5.setBackground(new java.awt.Color(51, 204, 0));
         jButtonColor5.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -280,7 +277,6 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 32, 7, 32);
         jPanelColor.add(jButtonColor5, gridBagConstraints);
 
-        jButtonColor2.setBackground(new java.awt.Color(255, 255, 0));
         jButtonColor2.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -294,7 +290,6 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 32, 7, 32);
         jPanelColor.add(jButtonColor2, gridBagConstraints);
 
-        jButtonColor4.setBackground(new java.awt.Color(204, 0, 204));
         jButtonColor4.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -308,7 +303,6 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(7, 32, 7, 32);
         jPanelColor.add(jButtonColor4, gridBagConstraints);
 
-        jButtonColor6.setBackground(new java.awt.Color(0, 204, 204));
         jButtonColor6.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -380,11 +374,7 @@ public class TMVista extends javax.swing.JFrame {
     public int getSelectionButtonGroup1() {
         return selectionButtonGroup1;
     }
-
-    public void setSelectionButtonGroup1(int value) {
-        miControl.setSelectionButtonGroup1(value);
-    }
-    
+   
     public JButton getjButtonBuy() {
         return jButtonBuy;
     }
@@ -492,7 +482,8 @@ public class TMVista extends javax.swing.JFrame {
     
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        
+        int [] value = {1,4};
+        miControl.setSelectionButtonGroup1(value);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -512,8 +503,10 @@ public class TMVista extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
-    
-    
+
+    public void paintColors(){
+        
+    }
     
     /**
      * @param args the command line arguments
