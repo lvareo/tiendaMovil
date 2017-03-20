@@ -20,8 +20,9 @@ public class TMControlador {
         miModelo = m;
     }
     
-    public void setSelectionButtonGroup1(double value){
+    public void setSelectionButtonGroup1(int []value){
         miModelo.setTamañoPantalla(value);
+        miVista.paintColors();
     }
     
     public void setjSlider1Value(){
