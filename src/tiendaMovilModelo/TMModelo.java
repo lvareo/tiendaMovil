@@ -59,6 +59,12 @@ public class TMModelo {
     
     }
     
+    /**
+     *
+     * @param Precio
+     * @param tamañoPantalla
+     * @param color
+     */
     public TMModelo(int Precio,int []tamañoPantalla, Color color){
         disponible = new ArrayList<>();
         Stock = new ArrayList<>();
@@ -155,7 +161,6 @@ public class TMModelo {
             }
         }
         this.Marcas = new DefaultComboBoxModel(modelo);
-        System.out.println(this.Marcas.toString());
         this.tamañoPantalla = tamañoPantalla;
         this.color = color;
         
@@ -163,113 +168,125 @@ public class TMModelo {
                 
     }
     
+    /**
+     *
+     * @param tamaño
+     */
     public void setTamañoPantalla(int []tamaño){
         tamañoPantalla = tamaño;
     }
+    
+    /**
+     *
+     * @return
+     */
+    public int[] getTamañoPantalla(){
+        return tamañoPantalla;
+    }
   
+    /**
+     *
+     * @return
+     */
     public int getPrecio() {
         return Precio;
     }
 
+    /**
+     *
+     * @param Precio
+     */
     public void setPrecio(int Precio) {
         this.Precio = Precio;
     }
 
+    /**
+     *
+     * @return
+     */
     public ComboBoxModel getMarcas() {
         return Marcas;
     }
 
-    public void setMarcas() {
-        for(listado l: listado.values()){
-            l.setRecuento(0);
-        }
-        int n = 1;
-        Iterator<movil> moviles = Stock.iterator();
-        while (moviles.hasNext()){
-            movil tempMovil = moviles.next();
-            if (tempMovil.getPrecio()<=this.Precio){
-                switch(tempMovil.getMarca()){
-                    case "Apple":
-                        listado.Apple.addRecuento();
-                        break;
-                    case "Samsung":
-                        listado.Samsung.addRecuento();
-                        break;
-                    case "LG":
-                        listado.LG.addRecuento();
-                        break;
-                    case "Sony":
-                        listado.Sony.addRecuento();
-                        break;
-                    case "Huawey":
-                        listado.Huawey.addRecuento();
-                        break;
-                } 
-            }
-        }
-        for(listado l: listado.values()){
-            if(l.getRecuento()!=0){
-                n++;
-            }
-        }
-        String []modelo;
-        modelo = new String [n];
-        modelo[0] = "< Seleccione una marca >";
-        int i=0;
-        for(listado l: listado.values()){
-            if (l.getRecuento()>0){
-                i++;
-                modelo[i] = String.format("%s(%d)\n",l,l.getRecuento());
-            }
-        }
-        Marcas = new DefaultComboBoxModel(modelo);
+    /**
+     *
+     * @param Marcas
+     */
+    public void setMarcas(DefaultComboBoxModel Marcas) {
+        this.Marcas = Marcas;
         marcaSeleccionada = Object.class.cast("< Seleccione una marca >");
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     *
+     * @param color
+     */
     public void setColor(Color color) {
         this.color = color;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<movil> getStock() {
         return Stock;
     }
 
+    /**
+     *
+     * @param Stock
+     */
     public void setStock(ArrayList<movil> Stock) {
         this.Stock = Stock;
     }
 
+    /**
+     *
+     * @return
+     */
     public Object getMarcaSeleccionada() {
         return marcaSeleccionada;
     }
 
+    /**
+     *
+     * @param marcaSeleccionada
+     */
     public void setMarcaSeleccionada(Object marcaSeleccionada) {
         this.marcaSeleccionada = marcaSeleccionada;
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Color> getDisponible(){
         return disponible;
     }
     
-    public void setDisponible(){
-        Iterator<movil> moviles = Stock.iterator();
-        while (moviles.hasNext()){
-            movil tempMovil = moviles.next();
-            if(tempMovil.getPrecio()<=Precio){
-                if (tempMovil.getMarca().contains(marcaSeleccionada.toString().substring(0, marcaSeleccionada.toString().indexOf("(")))) {
-                    if (tamañoPantalla[0]<= tempMovil.getTamañoPantalla()) {
-                        if (tempMovil.getTamañoPantalla()<= tamañoPantalla[1]) {
-                            disponible.add(tempMovil.getColor());
-                        }
-                    }
-                }
-                
-            }
-            
-        }
+    /**
+     *
+     * @return
+     */
+    public int []getTamañosPermitidos(){
+        return null;
+    }
+    
+    /**
+     *
+     * @param disponible
+     */
+    public void setDisponible(ArrayList<Color> disponible){
+        this.disponible = disponible;
         
     }
     

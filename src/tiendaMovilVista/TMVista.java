@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
@@ -31,14 +32,13 @@ public class TMVista extends javax.swing.JFrame {
 
     private TMControlador miControl;
     private TMModelo miModelo;
-    private int selectionButtonGroup1;
     /**
      * Creates new form NewJFrame
      */
     public TMVista() {
         initComponents();
         int [] pantalla={0,6};
-        miModelo = new TMModelo(jSlider1.getValue(),pantalla,new Color(0,0,0));
+        miModelo = new TMModelo(jSlider1.getValue(),null,null);
         miControl = new TMControlador(this,miModelo);
         
     }
@@ -135,6 +135,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelPrecio.add(jLabel2, gridBagConstraints);
 
         jTextFieldPrecio.setText("400");
+        jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrecioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -241,6 +246,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.setLayout(new java.awt.GridBagLayout());
 
         jButtonColor1.setEnabled(false);
+        jButtonColor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -254,6 +264,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.add(jButtonColor1, gridBagConstraints);
 
         jButtonColor3.setEnabled(false);
+        jButtonColor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor3ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -267,6 +282,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.add(jButtonColor3, gridBagConstraints);
 
         jButtonColor5.setEnabled(false);
+        jButtonColor5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor5ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -280,6 +300,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.add(jButtonColor5, gridBagConstraints);
 
         jButtonColor2.setEnabled(false);
+        jButtonColor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -293,6 +318,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.add(jButtonColor2, gridBagConstraints);
 
         jButtonColor4.setEnabled(false);
+        jButtonColor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -306,6 +336,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanelColor.add(jButtonColor4, gridBagConstraints);
 
         jButtonColor6.setEnabled(false);
+        jButtonColor6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColor6ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -330,6 +365,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
         jButtonBuy.setText("Comprar");
+        jButtonBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuyActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -341,6 +381,11 @@ public class TMVista extends javax.swing.JFrame {
         jPanel7.add(jButtonBuy, gridBagConstraints);
 
         jButtonCancel.setText("Cancelar");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -352,30 +397,29 @@ public class TMVista extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         jPanel1.add(jPanel7, gridBagConstraints);
-
-        jLabel3.setText("jLabel3");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(3, 11, 3, 11);
         jPanel1.add(jLabel3, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public int getSelectionButtonGroup1() {
-        return selectionButtonGroup1;
-    }
    
     public JButton getjButtonBuy() {
         return jButtonBuy;
@@ -392,9 +436,6 @@ public class TMVista extends javax.swing.JFrame {
 
     public void setjComboBoxMarcas() {
         jComboBoxMarcas.setModel(miModelo.getMarcas());
-        setSeleccionMarca();
-        jComboBoxMarcas.revalidate();
-        jComboBoxMarcas.repaint();
     }
 
     public JSlider getjSlider1() {
@@ -403,7 +444,21 @@ public class TMVista extends javax.swing.JFrame {
 
     public void setjSlider1(JSlider jSlider1) {
         this.jSlider1 = jSlider1;
-    }    
+    }
+    
+    public void setjSlider1Value(int value){
+        jSlider1.setValue(value);
+    }
+
+    public JTextField getjTextFieldPrecio() {
+        return jTextFieldPrecio;
+    }
+
+    public void setjTextFieldPrecio(JTextField jTextFieldPrecio) {
+        this.jTextFieldPrecio = jTextFieldPrecio;
+    }
+    
+    
 
     public JButton getjButtonColor1() {
         return jButtonColor1;
@@ -464,22 +519,6 @@ public class TMVista extends javax.swing.JFrame {
     public void setSeleccionMarca(){
         Object marcaSeleccionada = miModelo.getMarcaSeleccionada();
         jComboBoxMarcas.setSelectedItem(marcaSeleccionada);
-        if (!marcaSeleccionada.toString().equals("< Seleccione una marca >")){
-            jPanelTamaño.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Tamaño de pantalla"));
-            jPanelTamaño.setEnabled(true);
-            jRadioButton1.setEnabled(true);
-            jRadioButton2.setEnabled(true);
-            jRadioButton3.setEnabled(true);    
-        }
-        else{
-            jPanelTamaño.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Tamaño de pantalla"));
-            jPanelTamaño.setEnabled(false);
-            jRadioButton1.setEnabled(false);
-            jRadioButton2.setEnabled(false);
-            jRadioButton3.setEnabled(false);
-            buttonGroup1.clearSelection();
-
-        }
     }
     
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -489,22 +528,58 @@ public class TMVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        int [] value = {4,5};
+        miControl.setSelectionButtonGroup1(value);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        // TODO add your handling code here:
         miControl.setjSlider1Value();
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jComboBoxMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcasActionPerformed
-        // TODO add your handling code here:
         miControl.setMarcaSelection();
     }//GEN-LAST:event_jComboBoxMarcasActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+        int [] value = {5,6};
+        miControl.setSelectionButtonGroup1(value);
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jTextFieldPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioActionPerformed
+        miControl.setjTextFieldValue();
+    }//GEN-LAST:event_jTextFieldPrecioActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        miControl.restart();    
+    }//GEN-LAST:event_jButtonCancelActionPerformed
+
+    private void jButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuyActionPerformed
+        miControl.comprar();
+    }//GEN-LAST:event_jButtonBuyActionPerformed
+
+    private void jButtonColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor1ActionPerformed
+        miControl.setColor(1);
+    }//GEN-LAST:event_jButtonColor1ActionPerformed
+
+    private void jButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor6ActionPerformed
+        miControl.setColor(6);
+    }//GEN-LAST:event_jButtonColor6ActionPerformed
+
+    private void jButtonColor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor2ActionPerformed
+        miControl.setColor(2);
+    }//GEN-LAST:event_jButtonColor2ActionPerformed
+
+    private void jButtonColor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor3ActionPerformed
+        miControl.setColor(3);
+    }//GEN-LAST:event_jButtonColor3ActionPerformed
+
+    private void jButtonColor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor4ActionPerformed
+        miControl.setColor(4);
+    }//GEN-LAST:event_jButtonColor4ActionPerformed
+
+    private void jButtonColor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColor5ActionPerformed
+        miControl.setColor(5);
+    }//GEN-LAST:event_jButtonColor5ActionPerformed
 
     public void setjButtonColor1Background(Color color){
         jButtonColor1.setBackground(color);
@@ -531,11 +606,91 @@ public class TMVista extends javax.swing.JFrame {
         jButtonColor6.setEnabled(true);    
     }
     
+    public void resetjButtonColorsBackground(){
+        jButtonColor1.setEnabled(false);
+        jButtonColor2.setEnabled(false);
+        jButtonColor3.setEnabled(false);
+        jButtonColor4.setEnabled(false);
+        jButtonColor5.setEnabled(false);
+        jButtonColor6.setEnabled(false);
+    }
+    
+    public void setPanelTamañoEnable(){
+        jPanelTamaño.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Tamaño de pantalla"));
+        jPanelTamaño.setEnabled(true);
+    }
+    
+    public void setPanelTamañoDisabled(){
+        jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(false);
+        jRadioButton3.setEnabled(false);
+        buttonGroup1.clearSelection();
+        jPanelTamaño.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Tamaño de pantalla"));
+        jPanelTamaño.setEnabled(false);
+    }
+    
     public void setPanelColorEnable(){
         jPanelColor.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Color"));
         jPanelColor.setEnabled(true);
     }
+    public void setPanelColorDisabled(){
+        resetjButtonColorsBackground();
+        jPanelColor.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Color"));
+        jPanelColor.setEnabled(false);
+    }
     
+    public void setjRadioButton1Enabled(){
+        jRadioButton1.setEnabled(true);
+    }
+    
+    public void setjRadioButton2Enabled(){
+        jRadioButton2.setEnabled(true);
+    }
+    
+    public void setjRadioButton3Enabled(){
+        jRadioButton3.setEnabled(true);
+    }
+    
+    public void setjRadioButton1Disabled(){
+        jRadioButton1.setEnabled(false);
+    }
+    
+    public void setjRadioButton2Disabled(){
+        jRadioButton2.setEnabled(false);
+    }
+    
+    public void setjRadioButton3Disabled(){
+        jRadioButton3.setEnabled(false);
+    }
+    
+    public void clearButtonGroupSelection(){
+        buttonGroup1.clearSelection();
+    }
+    
+    public void ErrorjTextLabel(){
+        jLabel3.setText("<html>El precio introducido no es un número, por favor introduzca un número, o utilice el cursor</html>");
+    }
+    
+    public void clearErrorjTextLabel(){
+        jLabel3.setText("");
+    }
+    
+    public void setPanelMarcaDisabled(){
+        jComboBoxMarcas.setSelectedItem(miModelo.getMarcaSeleccionada());
+        jPanelMarca.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Marca"));
+        jPanelMarca.setEnabled(false);
+        jComboBoxMarcas.setEnabled(false);
+    }
+    
+    public void setPanelMarcaEnabled(){
+        jPanelMarca.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Marca"));
+        jPanelMarca.setEnabled(true);
+        jComboBoxMarcas.setEnabled(true);
+    }
+    
+    public void ErrorCompra(){
+        jLabel3.setText("<html>No ha terminado de seleccionar las caracteristicas de su movil.</html>");
+    }
     /**
      * @param args the command line arguments
      */
